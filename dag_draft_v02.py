@@ -8,6 +8,7 @@ filename = "event_planning.csv"
 data = []
 
 # Read the CSV file and store the data in the dictionary
+# TODO: Decide how to store the data, in a list or in a dict?
 with open(filename, newline='', encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
@@ -18,10 +19,16 @@ for item in data:
     print(item)
 
 
+# TODO: Process the list to produce the edge_list_with_weights
+# Sample output:
+# edge_list_ww = [('A', 'B', 3), ('A', 'C', 2), ('B', 'C', 1), ('B', 'E', 3),
+#                 ('C', 'D', 8), ('E', 'F', 4), ('D', 'F', 2),
+#                 ('B', 'D', 4), ('E', 'D', 4)]
+
 # Global variable: Create an empty Weighted DAG (Directed Acyclic Graph)
 G = nx.DiGraph()
 
-
+# TODO: Implement more efficient algorithm, and get bigO for the report
 # Function to find the longest path (brute-force approach)
 def find_longest_path(graph, start, end):
     longest_path = []
@@ -38,12 +45,16 @@ def find_longest_path(graph, start, end):
     return longest_path, longest_length
 
 
+# TODO: Function to draw the graph
+
+
+# Helper function to save the graph
 def save_graph(filename):
     filename = filename + '.png'
     plt.savefig(filename, format="PNG")
 
 
-# Create the edges lists with labels and weights (can set a default weight)
+# Sample input: Create the edges lists with labels and weights (can set a default weight)
 edge_list_ww = [('A', 'B', 3), ('A', 'C', 2), ('B', 'C', 1), ('B', 'E', 3),
                 ('C', 'D', 8), ('E', 'F', 4), ('D', 'F', 2),
                 ('B', 'D', 4), ('E', 'D', 4)]
@@ -65,7 +76,7 @@ print(f"The longest path is {path} with a length of {length}")
 print(f"The edges of the longest path is {edges_path}")
 
 # Formatting
-pos = nx.spring_layout(G)
+pos = nx.spring_layout(G)  # Optinos: spring, spectral, planar, random
 node_col = ['red' if node in path else 'steelblue' for node in G.nodes()]
 edge_colors = ['red' if edge in edges_path else 'black' for edge in G.edges()]
 
@@ -78,17 +89,9 @@ nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
 weight_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels)
 
-# Plot the graph in various ways
-# nx.draw_spring(G, with_labels=True)
-# nx.draw_spectral(G, with_labels=True)
-# nx.draw_planar(G, with_labels=True)
-# nx.draw_random(G, with_labels=True)
-
 # If you want an image file as well as a user interface window,
 # use pyplot.savefig before pyplot.show
 # After show() the figure is closed and thus unregistered from pyplot
 save_graph('g14')
 plt.show()
 plt.clf()
-
-print('hi there')
