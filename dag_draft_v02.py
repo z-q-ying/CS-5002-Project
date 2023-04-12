@@ -65,9 +65,9 @@ print(f"The longest path is {path} with a length of {length}")
 print(f"The edges of the longest path is {edges_path}")
 
 # Formatting
-pos = nx.spring_layout(G)
+pos = nx.spring_layout(G)  # layout options: spring, spectral, planar, random, etc.
 node_col = ['red' if node in path else 'steelblue' for node in G.nodes()]
-edge_colors = ['red' if edge in edges_path else 'black' for edge in G.edges()]
+edge_colors = ['red' if edge in edges_path else 'grey' for edge in G.edges()]
 
 
 # Draw DAG (w/o weight labels)
@@ -76,13 +76,7 @@ nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
 
 # Draw the weight labels
 weight_labels = nx.get_edge_attributes(G, 'weight')
-nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels)
-
-# Plot the graph in various ways
-# nx.draw_spring(G, with_labels=True)
-# nx.draw_spectral(G, with_labels=True)
-# nx.draw_planar(G, with_labels=True)
-# nx.draw_random(G, with_labels=True)
+nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels, font_color='grey')
 
 # If you want an image file as well as a user interface window,
 # use pyplot.savefig before pyplot.show
