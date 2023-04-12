@@ -67,7 +67,7 @@ def find_longest_path(graph, start, end):
 
     return longest_path, longest_length
 
-
+    
 def save_graph(filename):
     filename = filename + '.png'
     plt.savefig(filename, format="PNG")
@@ -114,3 +114,5 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels, font_color='grey
 save_graph('g14')
 plt.show()
 plt.clf()
+
+print('hi there')
