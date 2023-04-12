@@ -90,3 +90,5 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels)
 save_graph('g14')
 plt.show()
 plt.clf()
+
+print('hi there')

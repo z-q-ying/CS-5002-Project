@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec99a11b-53c4-4f20-8bc8-2de3c60c16a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CS_5002_Project Proposal_QiuyingZhuo_ZhiweiZhou.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project Report Draft v01.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Visual Studio Live Share.code-workspace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dag_draft_v01.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dag_draft_v02.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dag_promotional_event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/draw_graphs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event_planning.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/g9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weighted_and_directed_graph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weighted_graph.py" afterDir="false" />
+    <list default="true" id="ec99a11b-53c4-4f20-8bc8-2de3c60c16a2" name="Changes" comment="New">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dag_draft_v02.py" beforeDir="false" afterPath="$PROJECT_DIR$/dag_draft_v02.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2OIoes1PQLDLov5xj4kbVRKeoyw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,8 +27,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -70,12 +48,24 @@
       <option name="presentableId" value="Default" />
       <updated>1681257555846</updated>
       <workItem from="1681257557363" duration="25000" />
-      <workItem from="1681258615040" duration="357000" />
+      <workItem from="1681258615040" duration="761000" />
     </task>
+    <task id="LOCAL-00001" summary="New">
+      <created>1681259104947</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681259104947</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New" />
+    <option name="LAST_COMMIT_MESSAGE" value="New" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project$dag_draft_v02.coverage" NAME="dag_draft_v02 Coverage Results" MODIFIED="1681258761580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
