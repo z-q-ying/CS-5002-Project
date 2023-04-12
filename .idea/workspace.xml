@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ec99a11b-53c4-4f20-8bc8-2de3c60c16a2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CS_5002_Project Proposal_QiuyingZhuo_ZhiweiZhou.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project Report Draft v01.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Visual Studio Live Share.code-workspace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dag_draft_v01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dag_draft_v02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dag_promotional_event.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/draw_graphs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event_planning.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/g9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weighted_and_directed_graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weighted_graph.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2OIoes1PQLDLov5xj4kbVRKeoyw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ec99a11b-53c4-4f20-8bc8-2de3c60c16a2" name="Changes" comment="" />
+      <created>1681257555846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681257555846</updated>
+      <workItem from="1681257557363" duration="25000" />
+      <workItem from="1681258615040" duration="357000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project$dag_draft_v02.coverage" NAME="dag_draft_v02 Coverage Results" MODIFIED="1681258761580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project$dag_draft_v01.coverage" NAME="dag_draft_v01 Coverage Results" MODIFIED="1681257572608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
