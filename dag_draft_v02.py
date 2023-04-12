@@ -18,6 +18,36 @@ for item in data:
     print(item)
 
 
+# Build the key-value dict
+# Adding virtual-start node (VI stands for virtual-in)
+node_dict = {'VI': 0, 'A': 3, 'B': 2, 'C': 2, 'D': 4,
+             'E': 3, 'F': 2, 'G': 3, 'H': 1, 'I': 5,
+             'J': 2, 'K': 10, 'VO': 0}
+
+# Build the edge lists
+# Adding virtual-end node (VO stands for virtual-out)
+edge_list = [('VI', 'A'), ('VI', 'B'), ('A', 'C'), ('B', 'C'),
+             ('C', 'D'), ('C', 'E'), ('E', 'F'), ('D', 'F'),
+             ('C', 'G'), ('G', 'H'), ('F', 'I'), ('H', 'J'),
+             ('I', 'J'), ('J', 'K'), ('K', 'VO')]
+
+# Create the DAG (Directed Acyclic Graph)
+G = nx.DiGraph()
+G.add_edges_from(edge_list)
+
+# Check if G is a valid DAG
+is_valid_DAG = nx.is_directed_acyclic_graph(G)
+print(f'G is a valid directed acyclic graph: {is_valid_DAG}')
+
+
+
+
+
+
+
+
+
+
 # Global variable: Create an empty Weighted DAG (Directed Acyclic Graph)
 G = nx.DiGraph()
 
