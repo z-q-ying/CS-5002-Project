@@ -2,24 +2,64 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import csv
 
+
 ######################
 # Process input data #
 ######################
 
 filename = "event_planning.csv"
 
-# Initialize an empty dictionary to store the data
-data = []
+# Define the virtual start and end nodes
+start_node = 'VI'
+end_node = 'VO'
 
-# Read the CSV file and store the data in the dictionary
-with open(filename, newline='', encoding='UTF-8') as csvfile:
-    reader = csv.DictReader(csvfile)
+# Initialize a dictionary for nodes with virtual start and end nodes
+# TODO: rename to node_duration_dict
+node_dict = {start_node: 0, end_node: 0}
+
+# Initialize an empty dictionary for item-description pair
+# To build the edge lists
+node_description_dict = {}
+
+# Initialize empty edge_list, each edge is stored as tuple
+edge_list = []
+
+# Read the CSV file, update node_dict, node_description_dict, and edge_list
+with open(filename, 'r', encoding='UTF-8') as file:
+    reader = csv.reader(file)
+    next(reader)  # skip header row
+
     for row in reader:
-        data.append(row)
+        node = row[0]
+        description = row[1]
+        duration = int(row[2]) if row[2] else 0
+        preceding = row[3].split(',') if row[3] else []
 
-# Print the data
-# for item in data:
-#     print(item)
+        # Add the node and its duration to node_duration_dict
+        node_dict[node] = duration
+
+        # Add the node and its description to node_description_dict
+        node_description_dict[node] = description
+
+        # If node has no preceding node, add edge from virtual start node
+        if not preceding:
+            edge = (start_node, node)
+            if edge not in edge_list:
+                edge_list.append(edge)
+        else:
+            # If node has preceding nodes, add edges accordingly
+            for p in preceding:
+                edge = (p.strip(), node)
+                if edge not in edge_list:
+                    edge_list.append(edge)
+
+# If node is not being pointed to, add edge to virtual end node
+for node in node_dict.keys():
+    if node not in [e[0] for e in edge_list] and node != end_node:
+        edge = (node, end_node)
+        if edge not in edge_list:
+            edge_list.append(edge)
+
 
 ######################
 # Find Critical Path #
@@ -28,24 +68,6 @@ with open(filename, newline='', encoding='UTF-8') as csvfile:
 # Global variables
 # Create an empty directed graph Object
 G = nx.DiGraph()
-# Define the virtual start and end nodes
-start_node = 'VI'
-end_node = 'VO'
-
-# Build the key-value dict
-# Adding virtual-start node (VI stands for virtual-in)
-# Rule: If a node N is not being pointed to, add (start_node, N)
-node_dict = {start_node: 0, 'A': 3, 'B': 2, 'C': 2, 'D': 4,
-             'E': 3, 'F': 2, 'G': 3, 'H': 1, 'I': 5,
-             'J': 2, 'K': 10, end_node: 0}
-
-# Build the edge lists
-# Adding virtual-end node (VO stands for virtual-out)
-# Rule: If a node N points to no node, add (N, end_node)
-edge_list = [(start_node, 'A'), (start_node, 'B'), ('A', 'C'), ('B', 'C'),
-             ('C', 'D'), ('C', 'E'), ('E', 'F'), ('D', 'F'),
-             ('C', 'G'), ('G', 'H'), ('F', 'I'), ('H', 'J'),
-             ('I', 'J'), ('J', 'K'), ('K', end_node)]
 
 # Add edges to a graph from a list of edges
 # The edges must be given as 2-tuples (u, v) or 3-tuples (u, v, d)

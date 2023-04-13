@@ -1,4 +1,4 @@
-Number,Work Content,Duration,Preceding Works
+Item,Description,Duration,Preceding Works
 A,Select products (Department Manager),3,
 B,Select products (Purchaser),2,
 C,Price and select products for advertisement,2,"A, B"
