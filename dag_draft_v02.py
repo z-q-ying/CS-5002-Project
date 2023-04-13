@@ -100,7 +100,7 @@ edge_colors = ['red' if edge in edges_lp else 'grey' for edge in G.edges()]
 
 # Draw DAG (w/o weight labels)
 nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
-        node_shape='s', node_color=node_col)
+        node_color=node_col)
 
 
 def save_graph(filename):
@@ -112,6 +112,6 @@ def save_graph(filename):
 # If you want an image file as well as a user interface window,
 # use pyplot.savefig before pyplot.show
 # After show() the figure is closed and thus unregistered from pyplot
-save_graph('g14')
+save_graph('g15')
 plt.show()
 plt.clf()
