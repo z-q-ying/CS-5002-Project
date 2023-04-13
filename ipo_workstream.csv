@@ -1,0 +1,21 @@
+Item,Description,Duration,Preceding Works,Party
+A,Preparation of historical financial statements,15,,Auditors
+B,Preparation of financial projections,15,,Auditors
+C,Internal legal due diligence,15,,Company's Legal Counsel
+D,External legal due diligence,25,C,External Lawyers
+E,Internal operational due diligence,15,,Company's Management
+F,External operational due diligence,25,E,Industry Advisor
+G,Industry analysis and market research,35,,Industry Advisor
+H,Preparation of business plan,18,"B, G",Company's Management
+I,Drafting of the prospectus,35,"D, F, H",Sponsor & External Lawyers
+J,Review of financial statements and prospectus,15,"A, I",Auditors
+K,Finalizing the prospectus,5,"J, I",Sponsor & External Lawyers
+L,Filing the prospectus with the Hong Kong Stock Exchange,1,K,Sponsor
+S,Q&A with Hong Kong Stock Exchange,12,L,All parties
+T,Q&A with SFC (Securities and Futures Commission),12,L,All parties
+M,Marketing materials preparation,7,"H, I",Company's Management
+N,Roadshow presentation preparation,7,M,Sponsor & Company's Management
+O,Marketing and roadshow,14,"L, S, T",Sponsor & Company's Management
+P,Book-building and pricing,7,O,Sponsor
+Q,Allotment and allocation of shares,3,P,Sponsor
+R,Listing and commencement of trading,1,Q,Sponsor
