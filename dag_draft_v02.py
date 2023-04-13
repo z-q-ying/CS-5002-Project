@@ -104,6 +104,22 @@ def find_longest_path(graph, start, end):
 # Find the longest path and its length
 longest_path, longest_length = find_longest_path(G, start_node, end_node)
 edges_lp = list(zip(longest_path, longest_path[1:]))
+
+# Remove VI and VO from lists and dicts
+# TODO: For the sake of good order only, may be deleted if not needed
+node_dict.pop(start_node)
+node_dict.pop(end_node)
+edge_list = [edge for edge in edge_list if start_node not in edge and end_node not in edge]
+
+# Remove VI and VO from lists and dicts related to the critical path
+longest_path.pop(0)
+longest_path.pop(len(longest_path)-1)
+edges_lp = [edge for edge in edges_lp if start_node not in edge and end_node not in edge]
+
+# Update G.nodes() and G.edges() by removing VI, VO and their adjacent edges
+G.remove_node(start_node)
+G.remove_node(end_node)
+
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)
 
