@@ -109,12 +109,14 @@ edges_lp = list(zip(longest_path, longest_path[1:]))
 # TODO: For the sake of good order only, may be deleted if not needed
 node_dict.pop(start_node)
 node_dict.pop(end_node)
-edge_list = [edge for edge in edge_list if start_node not in edge and end_node not in edge]
+edge_list = [
+    edge for edge in edge_list if start_node not in edge and end_node not in edge]
 
 # Remove VI and VO from lists and dicts related to the critical path
 longest_path.pop(0)
 longest_path.pop(len(longest_path)-1)
-edges_lp = [edge for edge in edges_lp if start_node not in edge and end_node not in edge]
+edges_lp = [
+    edge for edge in edges_lp if start_node not in edge and end_node not in edge]
 
 # Update G.nodes() and G.edges() by removing VI, VO and their adjacent edges
 G.remove_node(start_node)
@@ -131,14 +133,16 @@ print('The edges of the longest path is', edges_lp)
 # TODO: Reformat the graph so that it looks like what's in the book
 
 # Layout options: spring, spectral, planar, random, etc.
-pos = nx.spring_layout(G)
+
+pos = nx.shell_layout(G)
+pos = {k: (v[0], -v[1]) for k, v in pos.items()}
 node_col = ['red' if node in longest_path else 'steelblue' for node in G.nodes()]
 edge_colors = ['red' if edge in edges_lp else 'grey' for edge in G.edges()]
 
 
 # Draw DAG (w/o weight labels)
-nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
-        node_color=node_col)
+nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors, edgecolors='darkgray',
+        node_color=node_col, node_size=700)
 
 
 def save_graph(filename):
