@@ -30,7 +30,7 @@ with open(filename, 'r', encoding='UTF-8') as file:
     reader = csv.reader(file)
     next(reader)  # skip header row
 
-    # mapping node labels and their durations
+    # Mapping node labels and their durations
     for row in reader:
         id_to_name[row[0]] = row[0]+':'+row[2]
 
@@ -92,18 +92,9 @@ G.add_edges_from(edge_list)
 is_valid_DAG = nx.is_directed_acyclic_graph(G)
 print(f'G is a valid directed acyclic graph: {is_valid_DAG}')
 
-# Assign weight to each edge based on input
-# for i, j in G.edges():
-#     G[i][j]['weight'] = 3
-
-# print(node_dict)
-# nx.get_edge_attributes(G, 'weight')
-# print(G.nodes.items())
-# for name, j in G.nodes.items():
-#     nx.relabel_nodes(G, {name: name + ":" + str(node_dict[name])})
-
-
 # Function to find the longest path (brute-force approach)
+
+
 def find_longest_path(graph, start, end):
     longest_path = []
     longest_length = float('-inf')  # Initialize to negative infinity
@@ -144,7 +135,6 @@ edges_lp = [
 # Update G.nodes() and G.edges() by removing VI, VO and their adjacent edges
 G.remove_node(start_node)
 G.remove_node(end_node)
-
 
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)

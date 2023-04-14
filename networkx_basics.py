@@ -20,10 +20,10 @@ G.add_edge('E', 'F')
 G.add_edge('A', 'B')
 G.add_edge('E', 'G')
 G.add_edge('E', 'G')
-G.add_edge('G', 'G')
-G.add_edge('D', 'E')
+G.add_edge('G', 'H')
+G.add_edge('D', 'H')
 
-V = {'A': 0, 'B': 0, 'C': 3, 'D': 2, 'E': 2, 'F': 4, 'G': 3, 'H': 2}
+V = {'A': 1, 'B': 3, 'C': 3, 'D': 2, 'E': 2, 'F': 4, 'G': 3, 'H': 2}
 
 for i, j in G.edges():
     G[i][j]['weight'] = V[str(i)] + V[str(j)]
@@ -64,6 +64,6 @@ def show_wpath(from_node, to_node):
 
 
 # show_wgraph()
-show_wpath(1, 8)
+show_wpath('A', 'G')
 
 plt.show()
