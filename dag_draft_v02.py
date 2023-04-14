@@ -66,7 +66,7 @@ for node_label in id_duration_dict.keys():
 
 
 # Print user friendly message to inform the progress
-print('\nDone with step 1: Process input data\n')
+print('\nDone with step 1: Process input data')
 print('id_duration_dict:', id_duration_dict)
 print('id_to_name_dict:', id_to_name_dict)
 print('id_description_dict:', id_description_dict)
@@ -90,7 +90,7 @@ G.add_edges_from(edge_list)
 is_valid_DAG = nx.is_directed_acyclic_graph(G)
 
 # Print user friendly message to inform the progress
-print('\nDone with step 2: Represent the graph using networkx\n')
+print('\nDone with step 2: Represent the graph using networkx')
 print(f'G is now a {G}')
 print(f'G is a valid directed acyclic graph: {is_valid_DAG}')
 
@@ -141,7 +141,7 @@ G.remove_node(start_node)
 G.remove_node(end_node)
 
 # Print user friendly message to inform the progress
-print('\nDone with step 3: Find the critical path\n')
+print('\nDone with step 3: Find the critical path')
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)
 
@@ -167,3 +167,31 @@ filename = filename + '.png'
 plt.savefig(filename, format="PNG")
 plt.show()
 plt.clf()
+
+# Print user friendly message to inform the progress
+print('\nDone with step 4: Format and plot')
+print(f'Picture is stored as {filename}')
+
+
+###########################
+# Generate output message #
+###########################
+
+# Function to generate the summary and print it
+def generate_summary(longest_path, longest_length, id_description_dict):
+    summary = "The critical path consists of the following tasks:\n"
+    
+    for idx, task in enumerate(longest_path):
+        task_id = task.split(':')[0]
+        task_description = id_description_dict[task_id]
+        task_duration = task.split(':')[1]
+        summary += f"{idx + 1}. {task_id}: {task_description} ({task_duration} days)\n"
+    
+    summary += f"\nThe total duration of the critical path is {longest_length} days."
+    
+    return summary
+
+# Generate the summary and print it
+print(f'\nSUMMARY for {}\n')
+summary = generate_summary(longest_path, longest_length, id_description_dict)
+print(summary)
