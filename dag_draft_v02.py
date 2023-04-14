@@ -7,29 +7,25 @@ import csv
 # Process input data #
 ######################
 
+# Read input data from CSV file and process it
 filename = "event_planning.csv"
 
-# Define the virtual start and end nodes
+# Define virtual start and end nodes
 start_node, end_node = 'VI', 'VO'
 
-# Initialize a dictionary for nodes with virtual start and end nodes
+# # Initialize dictionaries and edge_list to store processed data
 id_duration_dict = {start_node: 0, end_node: 0}
-
-# Initialize a dictionary for id-"id:duration" pair for matplotlib
 id_to_name_dict = {start_node: start_node, end_node: end_node}
-
-# Initialize an empty dictionary for id-description pair
 id_description_dict = {}
-
-# Initialize empty edge_list, each edge is to be stored as tuple
 edge_list = []
 
-# Read the CSV file, update node_dict, node_description_dict, and edge_list
+# Read and process CSV file
 with open(filename, 'r', encoding='UTF-8') as file:
     reader = csv.reader(file)
     next(reader)  # skip header row
 
     for row in reader:
+        # Process each row and update dictionaries and edge_list
         node_label = row[0]
         description = row[1]
         duration = int(row[2]) if row[2] else 0
@@ -65,7 +61,7 @@ for node_label in id_duration_dict.keys():
             edge_list.append(edge)
 
 
-# Print user friendly message to inform the progress
+# Print processed input data
 print('\nDone with step 1: Process input data')
 print('id_duration_dict:', id_duration_dict)
 print('id_to_name_dict:', id_to_name_dict)
@@ -76,20 +72,14 @@ print('edge_list', edge_list)
 # Represent the graph using networkx #
 ######################################
 
-# Global variables
-# Create an empty directed graph Object
+# Create a directed graph object and add edges from the edge_list
 G = nx.DiGraph()
-
-# Add edges to a graph from a list of edges
-# The edges must be given as 2-tuples (u, v) or 3-tuples (u, v, d)
-# where d is a dictionary containing edge data
 G.add_edges_from(edge_list)
 
 # Check if G is a valid Directed Acyclic Graph (DAG)
-# Satisfy both conditions: Directed, Acyclic
 is_valid_DAG = nx.is_directed_acyclic_graph(G)
 
-# Print user friendly message to inform the progress
+# Print graph representation information
 print('\nDone with step 2: Represent the graph using networkx')
 print(f'G is now a {G}')
 print(f'G is a valid directed acyclic graph: {is_valid_DAG}')
@@ -115,32 +105,21 @@ def find_longest_path(graph, start, end):
     return longest_path, longest_length
 
 
-# TODO: Implement more efficient algorithm, and get bigO for the report
-# Could compare run time etc.
-
-
 # Find the longest path and its length
 longest_path, longest_length = find_longest_path(G, start_node, end_node)
 edges_lp = list(zip(longest_path, longest_path[1:]))
 
-# Remove VI and VO from lists and dicts
-# TODO: For the sake of good order only, may be deleted if not needed
+# Update data structures by removing virtual nodes
 id_duration_dict.pop(start_node)
 id_duration_dict.pop(end_node)
-edge_list = [
-    edge for edge in edge_list if start_node not in edge and end_node not in edge]
-
-# Remove VI and VO from lists and dicts related to the critical path
+edge_list = [edge for edge in edge_list if start_node not in edge and end_node not in edge]
 longest_path.pop(0)
 longest_path.pop(len(longest_path)-1)
-edges_lp = [
-    edge for edge in edges_lp if start_node not in edge and end_node not in edge]
-
-# Update G.nodes() and G.edges() by removing VI, VO and their adjacent edges
+edges_lp = [edge for edge in edges_lp if start_node not in edge and end_node not in edge]
 G.remove_node(start_node)
 G.remove_node(end_node)
 
-# Print user friendly message to inform the progress
+# Print critical path information
 print('\nDone with step 3: Find the critical path')
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)
@@ -149,7 +128,7 @@ print('The edges of the longest path is', edges_lp)
 # Format and plot #
 ###################
 
-# Layout options: spring, spectral, planar, random, etc.
+# Set layout options and draw the graph using matplotlib
 plt.figure()
 pos = nx.shell_layout(G)
 pos = {k: (v[0], -v[1]) for k, v in pos.items()}
@@ -160,15 +139,13 @@ edge_colors = ['red' if edge in edges_lp else 'grey' for edge in G.edges()]
 nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
         edgecolors='darkgray', node_color=node_col, node_size=700)
 
-# If you want an image file as well as a user interface window,
-# use pyplot.savefig before pyplot.show
-# After show() the figure is closed and thus unregistered from pyplot
+# Save graph plot to file and display it
 filename = filename + '.png'
 plt.savefig(filename, format="PNG")
 plt.show()
 plt.clf()
 
-# Print user friendly message to inform the progress
+# Print plot information
 print('\nDone with step 4: Format and plot')
 print(f'Picture is stored as {filename}')
 
@@ -177,7 +154,7 @@ print(f'Picture is stored as {filename}')
 # Generate output message #
 ###########################
 
-# Function to generate the summary and print it
+# Function to generate and print a summary of the critical path
 def generate_summary(longest_path, longest_length, id_description_dict):
     summary = "The critical path consists of the following tasks:\n"
     
@@ -192,6 +169,6 @@ def generate_summary(longest_path, longest_length, id_description_dict):
     return summary
 
 # Generate the summary and print it
-print(f'\nSUMMARY for {}\n')
+print(f'\nSUMMARY\n')
 summary = generate_summary(longest_path, longest_length, id_description_dict)
 print(summary)
