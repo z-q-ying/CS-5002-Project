@@ -23,40 +23,53 @@ node_description_dict = {}
 
 # Initialize empty edge_list, each edge is stored as tuple
 edge_list = []
+id_to_name = {}
 
 # Read the CSV file, update node_dict, node_description_dict, and edge_list
 with open(filename, 'r', encoding='UTF-8') as file:
     reader = csv.reader(file)
     next(reader)  # skip header row
 
+    # mapping node labels and their durations
     for row in reader:
-        node = row[0]
+        id_to_name[row[0]] = row[0]+':'+row[2]
+
+    id_to_name[start_node] = start_node
+    id_to_name[end_node] = end_node
+
+with open(filename, 'r', encoding='UTF-8') as file:
+    reader = csv.reader(file)
+    next(reader)  # skip header row
+
+    for row in reader:
+        node_label = row[0]
         description = row[1]
         duration = int(row[2]) if row[2] else 0
         preceding = row[3].split(',') if row[3] else []
 
         # Add the node and its duration to node_duration_dict
-        node_dict[node] = duration
+        node_dict[id_to_name[node_label]] = duration
 
         # Add the node and its description to node_description_dict
-        node_description_dict[node] = description
+        node_description_dict[node_label] = description
 
         # If node has no preceding node, add edge from virtual start node
         if not preceding:
-            edge = (start_node, node)
+            edge = (id_to_name[start_node], id_to_name[node_label])
             if edge not in edge_list:
                 edge_list.append(edge)
         else:
             # If node has preceding nodes, add edges accordingly
             for p in preceding:
-                edge = (p.strip(), node)
+                s = p.strip()
+                edge = (id_to_name[s], id_to_name[node_label])
                 if edge not in edge_list:
                     edge_list.append(edge)
 
 # If node is not being pointed to, add edge to virtual end node
-for node in node_dict.keys():
-    if node not in [e[0] for e in edge_list] and node != end_node:
-        edge = (node, end_node)
+for node_label in node_dict.keys():
+    if node_label not in [e[0] for e in edge_list] and node_label != end_node:
+        edge = (node_label, id_to_name[end_node])
         if edge not in edge_list:
             edge_list.append(edge)
 
@@ -78,6 +91,16 @@ G.add_edges_from(edge_list)
 # Satisfy both conditions: Directed, Acyclic
 is_valid_DAG = nx.is_directed_acyclic_graph(G)
 print(f'G is a valid directed acyclic graph: {is_valid_DAG}')
+
+# Assign weight to each edge based on input
+# for i, j in G.edges():
+#     G[i][j]['weight'] = 3
+
+# print(node_dict)
+# nx.get_edge_attributes(G, 'weight')
+# print(G.nodes.items())
+# for name, j in G.nodes.items():
+#     nx.relabel_nodes(G, {name: name + ":" + str(node_dict[name])})
 
 
 # Function to find the longest path (brute-force approach)
@@ -122,6 +145,7 @@ edges_lp = [
 G.remove_node(start_node)
 G.remove_node(end_node)
 
+
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)
 
@@ -133,16 +157,20 @@ print('The edges of the longest path is', edges_lp)
 # TODO: Reformat the graph so that it looks like what's in the book
 
 # Layout options: spring, spectral, planar, random, etc.
-
+plt.figure()
 pos = nx.shell_layout(G)
 pos = {k: (v[0], -v[1]) for k, v in pos.items()}
 node_col = ['red' if node in longest_path else 'steelblue' for node in G.nodes()]
 edge_colors = ['red' if edge in edges_lp else 'grey' for edge in G.edges()]
+weight_labels = nx.get_edge_attributes(G, 'weight')
+output = nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels)
 
 
 # Draw DAG (w/o weight labels)
 nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors, edgecolors='darkgray',
         node_color=node_col, node_size=700)
+# Draw Weighted Edges
+nx.draw_networkx_edge_labels(G, pos, edge_labels=weight_labels)
 
 
 def save_graph(filename):
