@@ -31,8 +31,12 @@ with open(filename, 'r', encoding='UTF-8') as file:
         duration = int(row[2]) if row[2] else 0
         preceding = row[3].split(',') if row[3] else []
         
+        # Deal with potential duplicate row inputs (as identified by id)
+        if node_label in id_to_name_dict:
+            continue
+
         # Add the node and its duration to id_to_name_dict
-        id_to_name_dict[row[0]] = row[0]+':'+row[2]
+        id_to_name_dict[node_label] = node_label+':'+str(duration)
 
         # Add the node and its duration to node_duration_dict
         id_duration_dict[id_to_name_dict[node_label]] = duration
