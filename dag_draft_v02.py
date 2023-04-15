@@ -172,7 +172,26 @@ def generate_summary(longest_path, longest_length, id_description_dict):
     
     return summary
 
+# Function to generate and print a summary of the non-critical path
+def generate_non_critical_summary(longest_path, id_description_dict):
+    non_critical_summary = "The tasks NOT on the critical path are:\n"
+    
+    for id in id_description_dict:
+        id_duration = id_to_name_dict[id]
+        if id_duration not in longest_path:
+            id_description = id_description_dict[id]
+            id_duration = id_duration_dict[id_duration]
+            non_critical_summary += f"{id}: {id_description} ({id_duration} days)\n"
+    
+    return non_critical_summary
+
+
 # Generate the summary and print it
 print(f'\nSUMMARY\n')
 summary = generate_summary(longest_path, longest_length, id_description_dict)
 print(summary)
+
+# Generate the non-critical tasks summary and print it
+print(f'\nREFERENCE\n')
+non_critical_summary = generate_non_critical_summary(longest_path, id_description_dict)
+print(non_critical_summary)
