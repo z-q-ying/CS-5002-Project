@@ -141,7 +141,7 @@ edge_colors = ['red' if edge in edges_lp else 'grey' for edge in G.edges()]
 
 # Draw DAG
 nx.draw(G, pos, with_labels=True, font_color='white', edge_color=edge_colors,
-        edgecolors='darkgray', node_color=node_col, node_size=700)
+        node_color=node_col, node_size=700)
 
 # Save graph plot to file and display it
 filename = filename + '.png'
