@@ -1,12 +1,11 @@
 Item,Description,Duration,Preceding Works
-A,Select products (Department Manager),3,
-B,Select products (Purchaser),2,
-C,Price and select products for advertisement,2,"A, B"
-D,Prepare images,4,C
-E,Prepare text,3,C
-F,Design advertisement,2,"D, E"
-G,Compile and send mailing list,3,C
-H,Print labels,1,G
-I,Print advertisement,5,F
-J,Paste labels,2,"H, I"
-K,Distribute advertisement,10,J
+A,Plan the event (Event Coordinator),5,
+B,Select products (Purchaser),4,
+C,Design promotional materials (Graphic Designer),8,"A, B"
+D,Coordinate with suppliers (Purchaser),5,C
+E,Prepare email content (Marketing),4,C
+F,Print promotional materials (Printer),4,"D, E"
+G,Assemble email campaign (Marketing),3,C
+H,Distribute promotional materials (Retail Staff),3,"F, G"
+I,Launch email campaign (Marketing),1,G
+J,Execute promotional event (Retail Staff),2,H
