@@ -1,0 +1,13 @@
+Item,Description,Duration(weeks),Preceding Works
+A,Survey,1,
+B,Pre Design,4,A
+C,Subconstrators onboarding,1,
+D,Schematic Design,12,B
+E,LEED application,2,B
+F,Master Plan Review with City,1,D
+G,Design Development,18,"D, E"
+H,Construction Documents,28,F
+I,Building Permit,2,"E, G"
+J,Value Engineering,1,F
+K,Bidding Negotiation,2,"H, I"
+L,Construction Administration,60,J
