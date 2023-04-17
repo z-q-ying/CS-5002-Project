@@ -8,4 +8,4 @@ F,Print promotional materials (Printer),4,"D, E"
 G,Assemble email campaign (Marketing),3,C
 H,Distribute promotional materials (Retail Staff),3,"F, G"
 I,Launch email campaign (Marketing),1,G
-J,Execute promotional event (Retail Staff),2,H
+J,Execute promotional event (Retail Staff),2,"H, I"
