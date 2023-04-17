@@ -1,3 +1,8 @@
+# CS5002 Final Project Report
+# Optimizing Project Management Using Graph Theory
+# Qiuying Zhuo (zhuo.qi@northeastern.edu), Zhiwei Zhou (zhou.zhiwe@northeastern.edu)
+# Date: 17 April 2023
+
 import networkx as nx
 import matplotlib.pyplot as plt
 import csv
