@@ -6,7 +6,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import csv
+import time
 
+start = time.time()
 ######################
 # Process input data #
 ######################
@@ -131,6 +133,9 @@ G.remove_node(end_node)
 print('\nDone with step 3: Find the critical path')
 print('The longest path is', longest_path, 'with a length of', longest_length)
 print('The edges of the longest path is', edges_lp)
+end = time.time()
+# execution time
+print('runtime: '+str(end-start)[:8]+' S.')
 
 ###################
 # Format and plot #
